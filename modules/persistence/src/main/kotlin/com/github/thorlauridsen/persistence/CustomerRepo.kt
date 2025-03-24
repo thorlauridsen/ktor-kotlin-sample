@@ -3,12 +3,12 @@ package com.github.thorlauridsen.persistence
 import com.github.thorlauridsen.model.Customer
 import com.github.thorlauridsen.model.CustomerInput
 import com.github.thorlauridsen.model.ICustomerRepo
+import java.util.UUID
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.selectAll
-import org.jetbrains.exposed.sql.transactions.transaction
+import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.slf4j.LoggerFactory
-import java.util.UUID
 
 /**
  * Exposed customer repository.
@@ -26,8 +26,8 @@ class CustomerRepo : ICustomerRepo {
      * @throws IllegalStateException if customer not found in database after saving.
      * @return [Customer] retrieved from database.
      */
-    override fun save(customer: CustomerInput): Customer {
-        return transaction {
+    override suspend fun save(customer: CustomerInput): Customer {
+        return newSuspendedTransaction {
             logger.info("Saving customer $customer to database...")
             val id = CustomerTable.insertAndGetId {
                 it[mail] = customer.mail
@@ -43,10 +43,10 @@ class CustomerRepo : ICustomerRepo {
      * @param id [UUID] to fetch customer.
      * @return [Customer] or null if not found.
      */
-    override fun find(id: UUID): Customer? {
+    override suspend fun find(id: UUID): Customer? {
         logger.info("Retrieving customer with id: $id from database...")
 
-        return transaction {
+        return newSuspendedTransaction {
             val customer = CustomerTable
                 .selectAll()
                 .where { CustomerTable.id eq id }

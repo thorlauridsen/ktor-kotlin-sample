@@ -15,12 +15,12 @@ interface ICustomerRepo {
      * @param customer [CustomerInput] to save.
      * @return [Customer] retrieved from database.
      */
-    fun save(customer: CustomerInput): Customer
+    suspend fun save(customer: CustomerInput): Customer
 
     /**
      * Get a customer given an id.
      * @param id [UUID] to fetch customer.
      * @return [Customer] or null if not found.
      */
-    fun find(id: UUID): Customer?
+    suspend fun find(id: UUID): Customer?
 }

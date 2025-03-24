@@ -61,6 +61,10 @@ fun Application.configureCustomerRoute(customerService: CustomerService) {
             }) {
                 val id = UUID.fromString(call.parameters["id"])
                 val found = customerService.find(id)
+                if (found == null) {
+                    call.respond(HttpStatusCode.NotFound)
+                    return@get
+                }
                 call.respond(HttpStatusCode.OK, found.toDto(), TypeInfo(CustomerDto::class))
             }
         }

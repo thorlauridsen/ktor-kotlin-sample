@@ -30,14 +30,12 @@ class CustomerService {
     /**
      * Get a customer given an id.
      * @param id [UUID] to fetch customer.
-     * @throws IllegalStateException if no customer found with given id.
      * @return [Customer] or null if not found.
      */
-    fun find(id: UUID): Customer {
+    fun find(id: UUID): Customer? {
         logger.info("Retrieving customer with id: $id")
 
         val customer = customerRepo.find(id)
-            ?: error("Could not find customer with id: $id")
 
         logger.info("Found customer: $customer")
         return customer

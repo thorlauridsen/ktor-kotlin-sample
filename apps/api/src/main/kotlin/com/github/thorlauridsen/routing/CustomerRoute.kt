@@ -11,7 +11,6 @@ import io.ktor.server.application.Application
 import io.ktor.server.response.respond
 import io.ktor.server.routing.route
 import io.ktor.server.routing.routing
-import io.ktor.util.reflect.TypeInfo
 import java.util.UUID
 
 /**
@@ -36,7 +35,7 @@ fun Application.configureCustomerRoute(customerService: CustomerService) {
                 }
             }) { customer ->
                 val saved = customerService.save(customer.toModel())
-                call.respond(HttpStatusCode.Created, saved.toDto(), TypeInfo(CustomerDto::class))
+                call.respond(HttpStatusCode.Created, saved.toDto())
             }
             get("/{id}", {
                 request {
@@ -65,7 +64,7 @@ fun Application.configureCustomerRoute(customerService: CustomerService) {
                     call.respond(HttpStatusCode.NotFound)
                     return@get
                 }
-                call.respond(HttpStatusCode.OK, found.toDto(), TypeInfo(CustomerDto::class))
+                call.respond(HttpStatusCode.OK, found.toDto())
             }
         }
     }

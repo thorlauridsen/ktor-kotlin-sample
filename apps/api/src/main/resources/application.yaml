@@ -1,0 +1,13 @@
+ktor:
+  application:
+    modules:
+      - com.github.thorlauridsen.SampleApplicationKt.module
+  deployment:
+    port: 8080
+app:
+  database:
+    url: "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;"
+    username: "sa"
+    password: ""
+  liquibase:
+    changelog: "db/changelog/db.changelog-master.yaml"

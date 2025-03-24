@@ -1,2 +1,1 @@
-# ktor-sample
-Ktor Kotlin sample project
+# Ktor Kotlin sample project

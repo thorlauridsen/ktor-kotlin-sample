@@ -1,0 +1,46 @@
+[versions]
+exposed = "0.60.0"
+h2database = "2.3.232"
+kotlin = "2.1.10"
+ktor = "3.1.1"
+liquibase = "4.31.1"
+logback = "1.4.14"
+ktor-openapi-tools = "5.0.1"
+
+[libraries]
+# Exposed dependencies
+exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+
+# H2 for in-memory database
+h2database = { module = "com.h2database:h2", version.ref = "h2database" }
+
+# Ktor dependencies
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor" }
+ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
+ktor-server-cors = { module = "io.ktor:ktor-server-cors", version.ref = "ktor" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
+ktor-server-request-validation = { module = "io.ktor:ktor-server-request-validation", version.ref = "ktor" }
+ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
+ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
+
+# Test dependencies
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+
+# Ktor OpenAPI tools
+ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version.ref = "ktor-openapi-tools" }
+ktor-swagger-ui = { module = "io.github.smiley4:ktor-swagger-ui", version.ref = "ktor-openapi-tools" }
+
+# Liquibase for managing database changelogs
+liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+
+# Logging dependencies
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

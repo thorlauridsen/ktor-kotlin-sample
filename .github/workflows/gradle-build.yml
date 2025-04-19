@@ -1,0 +1,31 @@
+name: Gradle Build
+
+on:
+  push:
+    branches:
+      - main # Runs on pushes to main branch
+  pull_request:
+    branches:
+      - main # Runs on pull requests for merging into main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Use gradle/actions/setup-gradle@v4.3.0
+        uses: gradle/actions/setup-gradle@v4.3.1
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build

@@ -32,7 +32,7 @@ to view the Swagger documentation.
 - [JDK21](https://openjdk.org/projects/jdk/21/) - Latest JDK with long-term support
 - [Kotlin](https://github.com/JetBrains/kotlin) - Programming language with Java interoperability
 - [Gradle](https://github.com/gradle/gradle) - Used for compilation, building, testing and dependency management
-- [Ktor](https://github.com/ktorio/ktor) - For creating REST APIs
+- [Ktor](https://github.com/ktorio/ktor) - For creating REST APIs with Kotlin
 - [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) - For JSON serialization and deserialization
 - [Ktor OpenAPI Tools](https://github.com/SMILEY4/ktor-openapi-tools) - Provides automatic Swagger documentation for REST APIs
 - [Exposed](https://github.com/JetBrains/Exposed) - Lightweight Kotlin SQL library to interact with a database

@@ -36,6 +36,9 @@ dependencies {
     // H2 in-memory database
     runtimeOnly(local.h2database)
 
+    // PostgreSQL database driver
+    implementation(local.postgres)
+
     // Test dependencies
     testImplementation(local.kotlin.test.junit5)
     testImplementation(local.ktor.server.test.host)

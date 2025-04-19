@@ -7,6 +7,7 @@ ktor = "3.1.2"
 liquibase = "4.31.1"
 logback = "1.5.18"
 ktor-openapi-tools = "5.0.2"
+postgres = "42.7.5"
 
 [libraries]
 # Exposed dependencies
@@ -41,6 +42,9 @@ liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liqui
 
 # Logging dependencies
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+# PostgreSQL for a live database
+postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

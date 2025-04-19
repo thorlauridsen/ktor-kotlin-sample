@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sample-db
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: ktor-api
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/sample-db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+    image: ktor-kotlin-sample:latest
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

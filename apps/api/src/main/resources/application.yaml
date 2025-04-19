@@ -6,8 +6,8 @@ ktor:
     port: 8080
 app:
   database:
-    url: "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;"
-    username: "sa"
-    password: ""
+    url: "$DATABASE_URL:jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;"
+    username: "$DATABASE_USERNAME:sa"
+    password: "$DATABASE_PASSWORD:"
   liquibase:
     changelog: "db/changelog/db.changelog-master.yaml"

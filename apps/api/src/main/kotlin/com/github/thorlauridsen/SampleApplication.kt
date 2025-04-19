@@ -3,6 +3,7 @@ package com.github.thorlauridsen
 import com.github.thorlauridsen.config.configureCallLogging
 import com.github.thorlauridsen.config.configureCors
 import com.github.thorlauridsen.config.configureSerialization
+import com.github.thorlauridsen.persistence.CustomerRepo
 import com.github.thorlauridsen.persistence.configureDatabase
 import com.github.thorlauridsen.routing.configureCustomerRoute
 import com.github.thorlauridsen.routing.configureRouting
@@ -20,10 +21,10 @@ fun main(args: Array<String>) {
 /**
  * Configures the application module.
  */
-fun Application.module() {
+fun Application.module(customerService: CustomerService = CustomerService(CustomerRepo())) {
     configureCallLogging()
     configureCors()
-    configureCustomerRoute(CustomerService())
+    configureCustomerRoute(customerService)
     configureRouting()
     configureSerialization()
     configureDatabase()

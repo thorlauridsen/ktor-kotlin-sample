@@ -2,7 +2,7 @@ package com.github.thorlauridsen.service
 
 import com.github.thorlauridsen.model.Customer
 import com.github.thorlauridsen.model.CustomerInput
-import com.github.thorlauridsen.persistence.CustomerRepo
+import com.github.thorlauridsen.model.ICustomerRepo
 import org.slf4j.LoggerFactory
 import java.util.UUID
 
@@ -11,10 +11,9 @@ import java.util.UUID
  * - Saving customers.
  * - Fetching customers.
  */
-class CustomerService {
+class CustomerService(private val customerRepo: ICustomerRepo) {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
-    private val customerRepo = CustomerRepo()
 
     /**
      * Save a customer.

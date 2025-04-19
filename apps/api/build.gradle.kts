@@ -37,10 +37,15 @@ dependencies {
     runtimeOnly(local.h2database)
 
     // Test dependencies
-    testImplementation(local.kotlin.test.junit)
+    testImplementation(local.kotlin.test.junit5)
     testImplementation(local.ktor.server.test.host)
+    testRuntimeOnly(local.junit.platform.launcher)
 
     // Swagger/OpenAPI dependencies
     implementation(local.ktor.openapi)
     implementation(local.ktor.swagger.ui)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

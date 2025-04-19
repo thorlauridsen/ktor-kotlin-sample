@@ -1,6 +1,7 @@
 [versions]
 exposed = "0.60.0"
 h2database = "2.3.232"
+junitPlatformLauncher = "1.11.4"
 kotlin = "2.1.10"
 ktor = "3.1.1"
 liquibase = "4.31.1"
@@ -12,7 +13,7 @@ ktor-openapi-tools = "5.0.1"
 exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
 exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
 
-# H2 for in-memory database
+# H2 for an in-memory database
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
 
 # Ktor dependencies
@@ -28,7 +29,8 @@ ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref 
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
 
 # Test dependencies
-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
 # Ktor OpenAPI tools
 ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version.ref = "ktor-openapi-tools" }

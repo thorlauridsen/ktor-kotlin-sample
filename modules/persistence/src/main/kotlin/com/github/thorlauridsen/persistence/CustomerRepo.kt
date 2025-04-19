@@ -23,7 +23,7 @@ class CustomerRepo : ICustomerRepo {
     /**
      * Save a customer to the database.
      * @param customer [CustomerInput] to save.
-     * @throws IllegalStateException if customer not found in database after saving.
+     * @throws IllegalStateException if the customer is not found in the database after saving.
      * @return [Customer] retrieved from database.
      */
     override suspend fun save(customer: CustomerInput): Customer {
@@ -34,28 +34,36 @@ class CustomerRepo : ICustomerRepo {
             }
             logger.info("Saved customer with id $id in database")
 
-            find(id.value) ?: error("Could not save customer with mail: $customer")
+            findCustomer(id.value) ?: error("Customer not found in database with id $id")
         }
     }
 
     /**
      * Get a customer from the database given an id.
+     * This creates a new transaction to fetch the customer.
      * @param id [UUID] to fetch customer.
      * @return [Customer] or null if not found.
      */
     override suspend fun find(id: UUID): Customer? {
         logger.info("Retrieving customer with id: $id from database...")
 
-        return newSuspendedTransaction {
-            val customer = CustomerTable
-                .selectAll()
-                .where { CustomerTable.id eq id }
-                .map { mapToModel(it) }
-                .firstOrNull()
+        return newSuspendedTransaction { findCustomer(id) }
+    }
 
-            logger.info("Found customer $customer in database")
-            customer
-        }
+    /**
+     * Find a customer in the database given an id.
+     * @param id [UUID] to fetch customer.
+     * @return [Customer] or null if not found.
+     */
+    private fun findCustomer(id: UUID): Customer? {
+        val customer = CustomerTable
+            .selectAll()
+            .where { CustomerTable.id eq id }
+            .map { mapToModel(it) }
+            .firstOrNull()
+
+        logger.info("Found customer $customer in database")
+        return customer
     }
 
     /**

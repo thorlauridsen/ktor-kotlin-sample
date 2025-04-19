@@ -6,7 +6,7 @@ kotlin = "2.1.20"
 ktor = "3.1.2"
 liquibase = "4.31.1"
 logback = "1.5.18"
-ktor-openapi-tools = "5.0.1"
+ktor-openapi-tools = "5.0.2"
 
 [libraries]
 # Exposed dependencies

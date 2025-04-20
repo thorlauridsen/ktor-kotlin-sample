@@ -36,7 +36,11 @@ class CustomerService(private val customerRepo: ICustomerRepo) {
 
         val customer = customerRepo.find(id)
 
-        logger.info("Found customer: $customer")
+        if (customer != null) {
+            logger.info("Found customer with id: ${customer.id} and mail: ${customer.mail}")
+        } else {
+            logger.info("No customer found with id: $id")
+        }
         return customer
     }
 }

@@ -26,10 +26,20 @@ fun Application.configureCustomerRoute(customerService: CustomerService) {
                 description = "Save a customer"
                 request {
                     body<CustomerInputDto> {
-                        description = "Customer successfully created"
+                        description = "Customer details to save"
                         required = true
                         example("default") {
                             value = CustomerInputDto("bob@gmail.com")
+                        }
+                    }
+                }
+                response {
+                    HttpStatusCode.Created to {
+                        description = "Created customer details"
+                        body<CustomerDto> {
+                            example("default") {
+                                value = CustomerDto(UUID.randomUUID(), "bob@gmail.com")
+                            }
                         }
                     }
                 }
@@ -49,7 +59,7 @@ fun Application.configureCustomerRoute(customerService: CustomerService) {
                 description = "Retrieve a customer given an id"
                 response {
                     HttpStatusCode.OK to {
-                        description = "Successfully retrieved customer"
+                        description = "Successfully retrieved customer details"
                         body<CustomerDto> {
                             example("default") {
                                 value = CustomerDto(UUID.randomUUID(), "bob@gmail.com")

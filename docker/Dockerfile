@@ -23,7 +23,7 @@ COPY . .
 RUN ./gradlew --no-daemon :api:clean :api:buildFatJar -x test
 
 # Stage 2: Package the application into a runtime image using temurin JDK 21.
-FROM eclipse-temurin:21.0.6_7-jdk
+FROM eclipse-temurin:21.0.7_6-jdk
 WORKDIR /app
 
 # Copy the generated jar from the builder stage.

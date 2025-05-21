@@ -44,6 +44,8 @@ dependencies {
     testImplementation(local.ktor.server.test.host)
     testRuntimeOnly(local.junit.platform.launcher)
 
+    testImplementation(local.ktor.client.content.negotiation)
+
     // Swagger/OpenAPI dependencies
     implementation(local.ktor.openapi)
     implementation(local.ktor.swagger.ui)

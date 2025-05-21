@@ -27,12 +27,10 @@ class CustomerServiceTest {
     }
 
     @Test
-    fun `get customer - random id - returns not found`() {
-        runTest {
-            val id = UUID.randomUUID()
-            val fetchedCustomer = customerService.find(id)
-            assertNull(fetchedCustomer)
-        }
+    fun `get customer - random id - returns not found`() = runTest {
+        val id = UUID.randomUUID()
+        val fetchedCustomer = customerService.find(id)
+        assertNull(fetchedCustomer)
     }
 
     @ParameterizedTest
@@ -42,17 +40,15 @@ class CustomerServiceTest {
             "bob@gmail.com",
         ]
     )
-    fun `save customer - get customer - success`(mail: String) {
-        runTest {
-            val customer = CustomerInput(mail)
+    fun `save customer - get customer - success`(mail: String) = runTest {
+        val customer = CustomerInput(mail)
 
-            val savedCustomer = customerService.save(customer)
-            assertCustomer(savedCustomer, mail)
+        val savedCustomer = customerService.save(customer)
+        assertCustomer(savedCustomer, mail)
 
-            val fetchedCustomer = customerService.find(savedCustomer.id)
-            assertNotNull(fetchedCustomer)
-            assertCustomer(fetchedCustomer!!, mail)
-        }
+        val fetchedCustomer = customerService.find(savedCustomer.id)
+        assertNotNull(fetchedCustomer)
+        assertCustomer(fetchedCustomer!!, mail)
     }
 
     /**

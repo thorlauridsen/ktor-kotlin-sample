@@ -33,22 +33,21 @@ dependencies {
     // Liquibase for database migrations
     implementation(local.liquibase.core)
 
-    // H2 in-memory database
-    runtimeOnly(local.h2database)
-
     // PostgreSQL database driver
     implementation(local.postgres)
-
-    // Test dependencies
-    testImplementation(local.kotlin.test.junit5)
-    testImplementation(local.ktor.server.test.host)
-    testRuntimeOnly(local.junit.platform.launcher)
-
-    testImplementation(local.ktor.client.content.negotiation)
 
     // Swagger/OpenAPI dependencies
     implementation(local.ktor.openapi)
     implementation(local.ktor.swagger.ui)
+
+    // H2 in-memory database
+    runtimeOnly(local.h2database)
+
+    // Test dependencies
+    testImplementation(local.kotlin.test.junit5)
+    testImplementation(local.ktor.server.test.host)
+    testImplementation(local.ktor.client.content.negotiation)
+    testRuntimeOnly(local.junit.platform.launcher)
 }
 
 tasks.withType<Test> {

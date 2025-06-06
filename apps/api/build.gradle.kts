@@ -47,7 +47,6 @@ dependencies {
     testImplementation(local.kotlin.test.junit5)
     testImplementation(local.ktor.server.test.host)
     testImplementation(local.ktor.client.content.negotiation)
-    testRuntimeOnly(local.junit.platform.launcher)
 }
 
 tasks.withType<Test> {

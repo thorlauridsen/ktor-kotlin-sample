@@ -5,7 +5,7 @@ kotlin = "2.1.21"
 ktor = "3.2.0"
 liquibase = "4.32.0"
 logback = "1.5.18"
-ktor-openapi-tools = "5.0.2"
+ktor-openapi-tools = "5.1.0"
 postgres = "42.7.7"
 
 [libraries]

@@ -2,7 +2,7 @@
 exposed = "0.61.0"
 h2database = "2.3.232"
 kotlin = "2.2.0"
-ktor = "3.2.1"
+ktor = "3.2.2"
 liquibase = "4.33.0"
 logback = "1.5.18"
 ktor-openapi-tools = "5.1.0"

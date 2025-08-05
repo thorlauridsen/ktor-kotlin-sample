@@ -1,5 +1,5 @@
 # Stage 1: Build the application using a Gradle image with JDK 21.
-FROM gradle:8.14.3-jdk21-corretto AS builder
+FROM gradle:9.0.0-jdk21-corretto AS builder
 WORKDIR /home/gradle/project
 
 # Copy Gradle files from the correct locations.
@@ -23,7 +23,7 @@ COPY . .
 RUN ./gradlew --no-daemon :api:clean :api:buildFatJar -x test
 
 # Stage 2: Package the application into a runtime image using temurin JDK 21.
-FROM eclipse-temurin:21.0.7_6-jdk
+FROM eclipse-temurin:21.0.8_9-jdk
 WORKDIR /app
 
 # Copy the generated jar from the builder stage.

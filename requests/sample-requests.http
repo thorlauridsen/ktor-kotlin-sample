@@ -1,0 +1,56 @@
+# This is a sample HTTP request file for testing purposes
+# You can run the application locally and execute these requests in IntelliJ IDEA to test the API
+
+### Create a new customer with a mail address
+POST http://localhost:8080/customers
+Content-Type: application/json
+
+{
+  "mail": "bob@gmail.com"
+}
+
+> {%
+    client.test("Customer created successfully", function () {
+        client.assert(response.status === 201, "Response status is not 201");
+
+        const body = typeof response.body === 'string'
+            ? JSON.parse(response.body)
+            : response.body;
+
+        client.assert(
+            body.mail && body.mail === "bob@gmail.com",
+            "Response body does not contain the expected mail"
+        );
+
+        client.assert(
+            body.id,
+            "Response body does not contain an id"
+        );
+
+        client.global.set("customerId", body.id);
+    });
+%}
+
+### Get the created customer by ID from previous request
+GET http://localhost:8080/customers/{{customerId}}
+Accept: application/json
+
+> {%
+    client.test("Customer retrieved successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+
+        const body = typeof response.body === 'string'
+            ? JSON.parse(response.body)
+            : response.body;
+
+        client.assert(
+            body.mail && body.mail === "bob@gmail.com",
+            "Response body does not contain the expected mail"
+        );
+
+        client.assert(
+            body.id && body.id === client.global.get("customerId"),
+            "Response body does not contain the expected id"
+        );
+    });
+%}

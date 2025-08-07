@@ -1,4 +1,4 @@
-rootProject.name = "sample"
+rootProject.name = "ktor-kotlin-sample"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 

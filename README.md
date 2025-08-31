@@ -41,7 +41,7 @@ to view the Swagger documentation.
 - [Liquibase](https://github.com/liquibase/liquibase) - Used to manage database schema changelogs
 
 ## Gradle best practices for Kotlin
-[kotlinlang.org](https://kotlinlang.org/docs/gradle-best-practices.html)
+[docs.gradle.org](https://docs.gradle.org/current/userguide/performance.html) - [kotlinlang.org](https://kotlinlang.org/docs/gradle-best-practices.html)
 
 ### ✅ Use Kotlin DSL
 This project uses Kotlin DSL instead of the traditional Groovy DSL by

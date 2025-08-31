@@ -50,6 +50,9 @@ The benefit here is that we do not need to use another programming
 language (Groovy) and can simply use Kotlin in our **build.gradle.kts** files.
 This gives us the benefits of strict typing which lets IDEs provide
 better support for refactoring and auto-completion.
+If you want to read more about the benefits of using
+Kotlin DSL over Groovy DSL, you can check out
+[gradle-kotlin-dsl-vs-groovy-dsl](https://github.com/thorlauridsen/gradle-kotlin-dsl-vs-groovy-dsl)
 
 ### ✅ Use a version catalog
 

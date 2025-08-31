@@ -49,6 +49,6 @@ dependencies {
     testImplementation(local.ktor.client.content.negotiation)
 }
 
-tasks.withType<Test> {
+tasks.test {
     useJUnitPlatform()
 }

@@ -1,5 +1,5 @@
 # Stage 1: Build the application using a Gradle image with JDK 21.
-FROM gradle:9.0.0-jdk21-corretto AS builder
+FROM gradle:9.1.0-jdk21-corretto AS builder
 WORKDIR /home/gradle/project
 
 # Copy Gradle files from the correct locations.

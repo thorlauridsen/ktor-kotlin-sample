@@ -29,7 +29,7 @@ Once the system is running, navigate to http://localhost:8080/swagger
 to view the Swagger documentation.
 
 ## Technology
-- [JDK21](https://openjdk.org/projects/jdk/21/) - Latest JDK with long-term support
+- [JDK25](https://openjdk.org/projects/jdk/25/) - Latest JDK with long-term support
 - [Kotlin](https://github.com/JetBrains/kotlin) - Programming language with Java interoperability
 - [Gradle](https://github.com/gradle/gradle) - Used for compilation, building, testing and dependency management
 - [Ktor](https://github.com/ktorio/ktor) - For creating REST APIs with Kotlin

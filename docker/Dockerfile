@@ -1,4 +1,4 @@
-# Stage 1: Build the application using a Gradle image with JDK 21.
+# Stage 1: Build the application using a Gradle image with JDK.
 FROM gradle:9.2.0-jdk21-corretto AS builder
 WORKDIR /home/gradle/project
 
@@ -22,7 +22,7 @@ COPY . .
 # Exclude tests to speed up the build.
 RUN ./gradlew --no-daemon :api:clean :api:buildFatJar -x test
 
-# Stage 2: Package the application into a runtime image using temurin JRE 25.
+# Stage 2: Package the application into a runtime image using temurin JRE.
 FROM eclipse-temurin:25-jre-jammy
 WORKDIR /app
 

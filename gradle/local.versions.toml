@@ -4,7 +4,7 @@ h2database = "2.4.240"
 kotlin = "2.3.0"
 ktor = "3.3.3"
 liquibase = "5.0.1"
-logback = "1.5.24"
+logback = "1.5.25"
 ktor-openapi-tools = "5.4.0"
 postgres = "42.7.9"
 

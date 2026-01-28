@@ -22,7 +22,7 @@ jobs:
           java-version: 25
 
       - name: Use gradle/actions/setup-gradle@v4.3.0
-        uses: gradle/actions/setup-gradle@v5.0.0
+        uses: gradle/actions/setup-gradle@v5.0.1
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew

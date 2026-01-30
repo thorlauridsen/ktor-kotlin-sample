@@ -1,5 +1,5 @@
 # Stage 1: Build the application using a Gradle image with JDK.
-FROM gradle:9.3.0-jdk25-corretto AS builder
+FROM gradle:9.3.1-jdk25-corretto AS builder
 WORKDIR /home/gradle/project
 
 # Copy Gradle files from the correct locations.

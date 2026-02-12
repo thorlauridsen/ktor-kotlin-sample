@@ -1,5 +1,5 @@
 [versions]
-exposed = "0.61.0"
+exposed = "1.0.0"
 h2database = "2.4.240"
 kotlin = "2.3.10"
 ktor = "3.3.3"

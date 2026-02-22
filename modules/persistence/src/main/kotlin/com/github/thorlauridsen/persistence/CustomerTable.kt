@@ -1,6 +1,6 @@
 package com.github.thorlauridsen.persistence
 
-import org.jetbrains.exposed.dao.id.UUIDTable
+import org.jetbrains.exposed.v1.core.dao.id.java.UUIDTable
 
 /**
  * Exposed UUID table for customers.

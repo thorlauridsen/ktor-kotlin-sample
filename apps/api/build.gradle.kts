@@ -44,7 +44,10 @@ dependencies {
     runtimeOnly(local.h2database)
 
     // Test dependencies
-    testImplementation(local.kotlin.test.junit5)
+    testImplementation(local.junit.jupiter.api)
+    testImplementation(local.junit.jupiter.engine)
+    testImplementation(local.junit.jupiter.params)
+    testImplementation(local.junit.platform.launcher)
     testImplementation(local.ktor.server.test.host)
     testImplementation(local.ktor.client.content.negotiation)
 }

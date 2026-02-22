@@ -4,4 +4,5 @@ dependencies {
 
     // Exposed dependency for interacting with a SQL database
     implementation(local.exposed.core)
+    implementation(local.exposed.jdbc)
 }

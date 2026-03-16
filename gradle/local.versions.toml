@@ -2,7 +2,7 @@
 exposed = "1.1.1"
 h2database = "2.4.240"
 junit = "6.0.3"
-kotlin = "2.3.10"
+kotlin = "2.3.20"
 ktor = "3.4.1"
 liquibase = "5.0.2"
 logback = "1.5.32"

@@ -7,7 +7,7 @@ ktor = "3.4.3"
 liquibase = "5.0.2"
 logback = "1.5.32"
 ktor-openapi-tools = "5.7.0"
-postgres = "42.7.10"
+postgres = "42.7.11"
 
 [libraries]
 # Exposed dependencies

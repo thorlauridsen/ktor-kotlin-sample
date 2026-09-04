@@ -1,6 +1,6 @@
 [versions]
 exposed = "1.5.0"
-h2database = "2.4.240"
+h2database = "2.5.250"
 junit = "6.1.3"
 kotlin = "2.4.10"
 ktor = "3.5.2"
